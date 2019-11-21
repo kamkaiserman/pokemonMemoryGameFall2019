@@ -5,7 +5,6 @@ main {
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
   border: 15px solid #161303;
   margin: 0px;
   display: flex;
@@ -22,6 +21,7 @@ p {
   margin-top: 4px;
   font-size: 8px;
   text-transform: capitalize;
+  font-family: 'Open Sans', sans-serif;
 }
 
 img {
@@ -33,6 +33,11 @@ h1 {
   margin-bottom: .5em;
   font-size: 3rem;
   color: rgb(252, 147, 27);
+  font-family: 'Raleway', sans-serif;
+}
+
+h4 {
+  font-family: 'Raleway', sans-serif;
 }
 
 .header {
