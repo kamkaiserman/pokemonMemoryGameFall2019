@@ -12,14 +12,17 @@
     </head>
     <body>
         <div class="header bounceInLeft animated">
-        <h1>Pokemon Matching Game</h1>
-        <h4>Flip the cards to find the matching pokemon!</h4>
-        <div class="menu">
-            <button id="newPokemon" class="button button1">New Pokemon Card</button>
-            <button onClick="refreshPage()" class="button button2"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-            <button onClick="playSound('pokemon.mp3')" class="button button3"><i class="fa fa-music" aria-hidden="true"></i></button>
+            <div class="headerText">
+                <h1>Pokemon Matching Game</h1>
+                <h4>Flip the cards to find the matching pokemon!</h4>
+            </div>
+            <div class="menu">
+                <button id="newPokemon" class="button button1">New Pokemon Card</button>
+                <button onClick="refreshPage()" class="button button2"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                <button onClick="playSound('pokemon.mp3')" class="button button1"><i class="fa fa-music" aria-hidden="true"></i></button>
+            </div>
+            <button onClick="playGame()" class="button3"><i class="fa fa-play" aria-hidden="true"></i></button>
         </div>
-    </div>
         <main></main>
         <script src="pokemon.js" async defer></script>
     </body>

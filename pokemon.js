@@ -221,6 +221,19 @@ function fillCardBack(pokeBack, pokeBackDiv, data) {
                                         
 }
 
+function playGame(){
+    var html = document.getElementsByTagName('main')[0];
+    html.style.cssText = "display: flex";
+    var header = document.getElementsByClassName('header')[0];
+    header.style.cssText = "margin-left: 150px";
+    var playButton = document.getElementsByClassName('button3')[0];
+    playButton.style.cssText = "display: none";
+    var playButton = document.getElementsByClassName('headerText')[0];
+    playButton.style.cssText = "display: none";
+    var playButton = document.getElementsByClassName('menu')[0];
+    playButton.style.cssText = "display: flex";
+}
+
 function refreshPage(){
     window.location.reload();
 }
