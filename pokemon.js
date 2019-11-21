@@ -1,13 +1,35 @@
-//for loop to generate 13 random numbers
-//duplicate and combine the 13 to become 26
-//randomize the order of the 26
-//call "getAPIData" for every number in string and populateDom
+///////////////////////////////////////////////////////////////////////
+//I didn't work filter, map, reduce into my project but I do know how they work
+///////////////////////////////////////////////////////////////////////
 
+function makeSimpleMap(allOfThem) {
+    let results = allOfThem.map(senator => {
+        return {
+            id: senator.id,
+            name: `${senator.first_name} ${senator.last_name}`,
+            party: senator.party,
+            date_of_birth: `${calculate_age(new Date(senator.date_of_birth))}`,
+            gender: senator.gender,
+            state_rank: senator.state_rank,
+            total_votes: senator.total_votes
+        }
+    })
+    return results
+}
 
-// async function getPokemonData(url) {
-//     const response = await fetch(url)
-//     return await response.json()
-// }
+function filterSenators(simpleList, partyAffiliation) {
+    return simpleList.filter(senator => senator.party === partyAffiliation)
+}
+
+const testArray = [5,10,15,20,25,30,35,40,45,50,30]
+
+const testReduce = testArray.reduce((acc, num) => {
+    return acc + num
+}, 0)
+
+///////////////////////////////////////////////////////////////////////
+//I didn't work filter, map, reduce into my project but I do know how they work
+///////////////////////////////////////////////////////////////////////
 
 async function getAPIData(url) {
     try {
@@ -84,8 +106,6 @@ newButton.addEventListener('click', function () {
             populateDom(result)
         })
 })
-
-
 
 // const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
 //     .then(data => {
