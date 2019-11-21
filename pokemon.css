@@ -95,6 +95,15 @@ h4 {
   margin: 4px 2px;
   cursor: pointer;
 }
+.button4 {
+  background-color: #3643f4;
+  display: initial;
+  padding: 5px 36px;
+}
+.button5 {
+  background-color: #3643f4;
+  display: none;
+}
 
 .scene {
     width: 65px;

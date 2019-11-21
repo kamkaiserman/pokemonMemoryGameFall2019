@@ -221,6 +221,8 @@ function fillCardBack(pokeBack, pokeBackDiv, data) {
                                         
 }
 
+var snd = new Audio('pokemon.mp3');
+
 function playGame(){
     var html = document.getElementsByTagName('main')[0];
     html.style.cssText = "display: flex";
@@ -232,14 +234,28 @@ function playGame(){
     playButton.style.cssText = "display: none";
     var playButton = document.getElementsByClassName('menu')[0];
     playButton.style.cssText = "display: flex";
+    
+    snd.play();
+    snd.loop = true;
 }
 
 function refreshPage(){
     window.location.reload();
 }
 
-function playSound(melody) {
-    var snd = new Audio(melody);
+function pauseSound() {
+    snd.pause();
+    var playButton = document.getElementsByClassName('button4')[0];
+    playButton.style.cssText = "display: none";
+    var playButton = document.getElementsByClassName('button5')[0];
+    playButton.style.cssText = "display: initial";
+}
+
+function resumeSound() {
     snd.play();
     snd.loop = true;
+    var playButton = document.getElementsByClassName('button5')[0];
+    playButton.style.cssText = "display: none";
+    var playButton = document.getElementsByClassName('button4')[0];
+    playButton.style.cssText = "display: initial";
 }
