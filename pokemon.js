@@ -38,7 +38,7 @@ function shuffle(arra1) {
 
 var pokemonIDArray = [];
 
-for (i = 0; i < 12; i++) {
+for (i = 0; i < 15; i++) {
     var tempPokeID = Math.floor((Math.random() * 807) + 1);
     if(i === 0)
     {
@@ -48,7 +48,7 @@ for (i = 0; i < 12; i++) {
     }
 }
 
-for (i = 0; i < 12; i++) {
+for (i = 0; i < 15; i++) {
     let tempPokeID = pokemonIDArray[i]
     pokemonIDArray.push(tempPokeID)
 }
@@ -66,8 +66,6 @@ for (i = 0; i < pokemonIDArray.length; i++) {
 }
 
 console.log(pokemonIDArray)
-
-
 
 class Pokemon {
     constructor(id, name) {
@@ -106,9 +104,10 @@ function populateDom(single_pokemon) {
     let pokeCard = document.createElement('div')
     let pokeFront = document.createElement('div')
     let pokeBack = document.createElement('div')
+    let pokeBackDiv = document.createElement('div')
 
     fillCardFront(pokeFront, single_pokemon)
-    fillCardBack(pokeBack, single_pokemon)
+    fillCardBack(pokeBack, pokeBackDiv, single_pokemon)
 
     pokeScene.setAttribute('class', 'scene')
     pokeCard.setAttribute('class', 'card')
@@ -143,22 +142,91 @@ function getPokemonNumber(id) {
 }
 
 function fillCardFront(pokeFront, data) {
-    pokeFront.setAttribute('class', 'card__face card__face--front')
+    pokeFront.setAttribute('class', 'card__face card__face--front bounceIn')
     let pic = document.createElement('img')
-    pic.setAttribute('class', 'picDivs')
     pokeFront.appendChild(pic)
-    pic.src = `https://img.mandarake.co.jp/aucimg/2/0/7/8/0001402078.jpeg`
+    pic.src = `cardBack.png`
 }
 
-function fillCardBack(pokeBack, data) {
+function fillCardBack(pokeBack, pokeBackDiv, data) {
     pokeBack.setAttribute('class', 'card__face card__face--back')
+    pokeBackDiv.setAttribute('class', 'pokeBackDiv')
     let name = document.createElement('p')
+    let type = document.createElement('p')
     let pic = document.createElement('img')
     let pokeNum = getPokeNumber(data.id)
     pic.setAttribute('class', 'picDivs')
-    pokeBack.appendChild(name)
-    pokeBack.appendChild(pic)
-    pokeBack.appendChild(name)
+    pokeBackDiv.appendChild(name)
+    pokeBackDiv.appendChild(pic)
+    pokeBackDiv.appendChild(type)
+    pokeBack.appendChild(pokeBackDiv)
     name.textContent = `${data.name}`
-    pic.src = `https://img.pokemondb.net/artwork/large/${data.name}.jpg`
+    type.textContent = `${data.types[0].type.name}`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${getPokemonNumber(data.id)}.png`
+
+    if(data.types[0].type.name === 'normal') {
+    pokeBack.setAttribute('class', 'card__face card__face--back normal') 
+        }
+    if(data.types[0].type.name === 'fire') {
+        pokeBack.setAttribute('class', 'card__face card__face--back fire') 
+        }
+    if(data.types[0].type.name === 'water') {
+        pokeBack.setAttribute('class', 'card__face card__face--back water') 
+        }
+        if(data.types[0].type.name === 'grass') {
+            pokeBack.setAttribute('class', 'card__face card__face--back grass') 
+            }
+            if(data.types[0].type.name === 'electric') {
+                pokeBack.setAttribute('class', 'card__face card__face--back electric') 
+                }
+                if(data.types[0].type.name === 'ice') {
+                    pokeBack.setAttribute('class', 'card__face card__face--back ice') 
+                    }
+                    if(data.types[0].type.name === 'fighting') {
+                        pokeBack.setAttribute('class', 'card__face card__face--back fighting') 
+                            }
+                            if(data.types[0].type.name === 'poison' || data.types[0].type.name === 'poison') {
+                                pokeBack.setAttribute('class', 'card__face card__face--back poison') 
+                                }
+                                if(data.types[0].type.name === 'ground') {
+                                    pokeBack.setAttribute('class', 'card__face card__face--back ground') 
+                                    }
+                                    if(data.types[0].type.name === 'flying') {
+                                        pokeBack.setAttribute('class', 'card__face card__face--back flying') 
+                                        }
+                                        if(data.types[0].type.name === 'psychic') {
+                                            pokeBack.setAttribute('class', 'card__face card__face--back psychic') 
+                                            }
+                                            if(data.types[0].type.name === 'bug') {
+                                                pokeBack.setAttribute('class', 'card__face card__face--back bug') 
+                                                }
+                                                if(data.types[0].type.name === 'rock') {
+                                                    pokeBack.setAttribute('class', 'card__face card__face--back rock') 
+                                                    }
+                                                    if(data.types[0].type.name === 'ghost') {
+                                                        pokeBack.setAttribute('class', 'card__face card__face--back ghost') 
+                                                        }
+                                                        if(data.types[0].type.name === 'dragon') {
+                                                            pokeBack.setAttribute('class', 'card__face card__face--back dragon') 
+                                                            }
+                                                            if(data.types[0].type.name === 'dark') {
+                                                                pokeBack.setAttribute('class', 'card__face card__face--back dark') 
+                                                                }
+                                                                if(data.types[0].type.name === 'steel') {
+                                                                    pokeBack.setAttribute('class', 'card__face card__face--back steel') 
+                                                                    }
+                                                                    if(data.types[0].type.name === 'fairy') {
+                                                                        pokeBack.setAttribute('class', 'card__face card__face--back fairy') 
+                                                                        }
+                                        
+}
+
+function refreshPage(){
+    window.location.reload();
+}
+
+function playSound(melody) {
+    var snd = new Audio(melody);
+    snd.play();
+    snd.loop = true;
 }

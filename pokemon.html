@@ -5,11 +5,22 @@
         <title>Kam's Pokemon Projecct</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="pokemon.css">
     </head>
     <body>
+        <div class="header bounceInLeft animated">
+        <h1>Pokemon Matching Game</h1>
+        <h4>Flip the cards to find the matching pokemon!</h4>
+        <div class="menu">
+            <button id="newPokemon" class="button button1">New Pokemon Card</button>
+            <button onClick="refreshPage()" class="button button2"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+            <button onClick="playSound('pokemon.mp3')" class="button button3"><i class="fa fa-music" aria-hidden="true"></i></button>
+        </div>
+    </div>
         <main></main>
-        <button id="newPokemon">New Pokemon Card</button>
         <script src="pokemon.js" async defer></script>
     </body>
 </html>
