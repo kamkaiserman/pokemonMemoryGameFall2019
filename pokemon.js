@@ -60,7 +60,7 @@ function shuffle(arra1) {
 
 var pokemonIDArray = [];
 
-for (i = 0; i < 15; i++) {
+for (i = 0; i < 16; i++) {
     var tempPokeID = Math.floor((Math.random() * 807) + 1);
     if(i === 0)
     {
@@ -70,7 +70,7 @@ for (i = 0; i < 15; i++) {
     }
 }
 
-for (i = 0; i < 15; i++) {
+for (i = 0; i < 16; i++) {
     let tempPokeID = pokemonIDArray[i]
     pokemonIDArray.push(tempPokeID)
 }
@@ -173,15 +173,24 @@ function fillCardBack(pokeBack, pokeBackDiv, data) {
     pokeBackDiv.setAttribute('class', 'pokeBackDiv')
     let name = document.createElement('p')
     let type = document.createElement('p')
+    let move = document.createElement('p')
+    let hp = document.createElement('p')
     let pic = document.createElement('img')
     let pokeNum = getPokeNumber(data.id)
     pic.setAttribute('class', 'picDivs')
     pokeBackDiv.appendChild(name)
     pokeBackDiv.appendChild(pic)
     pokeBackDiv.appendChild(type)
+    pokeBackDiv.appendChild(hp)
+    pokeBackDiv.appendChild(move)
+
     pokeBack.appendChild(pokeBackDiv)
     name.textContent = `${data.name}`
-    type.textContent = `${data.types[0].type.name}`
+    type.textContent = `Type: ${data.types[0].type.name}`
+    move.textContent = `Atk: ${data.moves[0].move.name}`
+    hp.textContent = `HP: ${data.stats[5].base_stat}`
+
+    
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${getPokemonNumber(data.id)}.png`
 
     if(data.types[0].type.name === 'normal') {
@@ -246,8 +255,6 @@ var snd = new Audio('pokemon.mp3');
 function playGame(){
     var html = document.getElementsByTagName('main')[0];
     html.style.cssText = "display: flex";
-    var header = document.getElementsByClassName('header')[0];
-    header.style.cssText = "margin-left: 150px";
     var playButton = document.getElementsByClassName('button3')[0];
     playButton.style.cssText = "display: none";
     var playButton = document.getElementsByClassName('headerText')[0];
