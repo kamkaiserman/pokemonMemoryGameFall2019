@@ -19,7 +19,7 @@ body {
 p {
   margin: 0px;
   margin-top: 4px;
-  font-size: 8px;
+  font-size: 12px;
   text-transform: capitalize;
   font-family: 'Open Sans', sans-serif;
 }
@@ -108,9 +108,10 @@ h4 {
 }
 
 .scene {
-    width: 100px;
-    height: 120px;
+    width: 120px;
+    height: 140px;
     margin: 15px;
+    margin-bottom: 20px;
   }
   
   .picDivs {
@@ -123,10 +124,11 @@ h4 {
     flex-direction: column;
     text-align: left;
     padding: 10px;
+    margin-top: -8px;
   }
   .pokeBackDiv img {
     display: block;
-    max-width: 50px;
+    max-width: 70px;
     padding: 5px;
     margin-left: 8px;
     text-align: center;
@@ -134,8 +136,8 @@ h4 {
 
   .card {
     margin: 10px;
-    width: 100px;
-    height: 140px;
+    width: 120px;
+    height: 168px;
     transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
